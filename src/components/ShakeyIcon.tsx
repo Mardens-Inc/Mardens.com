@@ -7,7 +7,7 @@ export type ShakeyIconProps = {
 
 export function ShakeyIcon(props: ShakeyIconProps)
 {
-    const {icon, width, height, active} = props;
+    const {icon, width, height, active, color} = props;
     return (
         <div data-active={props.active} className={"relative"} style={{width: width, height: height}}>
             <motion.div
@@ -32,7 +32,7 @@ export function ShakeyIcon(props: ShakeyIconProps)
                     }
                 }}
             >
-                <Icon icon={icon} width={width} height={height}/>
+                <Icon icon={icon} width={width} height={height} color={color}/>
             </motion.div>
             <motion.div
                 initial={{scale: 0, rotate: 45}}

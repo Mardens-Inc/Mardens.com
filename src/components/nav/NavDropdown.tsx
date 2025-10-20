@@ -55,12 +55,18 @@ export function NavDropdownItem(props: NavDropdownItemProps)
         <div
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("flex flex-row items-center gap-2 hover:text-primary border-b border-black/10 py-2 cursor-pointer", rest.className)}
+            className={cn("flex flex-row items-center gap-4 hover:text-secondary border-b border-black/10 py-2 cursor-pointer relative", rest.className)}
             {...rest}
         >
 
-            {icon ? <ShakeyIcon active={hovering} icon={icon} width={24} height={24}/> : null}
+
+            {icon ? <span className={"data-[hover=true]:text-primary"} data-hover={hovering}><ShakeyIcon active={hovering} icon={icon} width={24} height={24}/></span> : null}
             <span>{children}</span>
+            <motion.span
+                initial={{right: 300}}
+                animate={{right: hovering ? 0 : 300}}
+                className={"bg-primary absolute -left-2 top-0 bottom-0 -z-10"}
+            />
         </div>
     );
 }
