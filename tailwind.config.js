@@ -8,7 +8,38 @@ export default {
         "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
-        extend: {},
+        fontFamily: {
+            sans: ['dunbar-text', 'sans-serif'],
+            headers: ['dunbar-tall', 'sans-serif'],
+            accent: ['eds-market-narrow-slant', 'cursive'],
+        },
+        extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        h1: {
+                            fontFamily: 'dunbar-tall, sans-serif',
+                            fontWeight: '900',
+                        },
+                        h2: {
+                            fontFamily: 'dunbar-tall, sans-serif',
+                            fontWeight: '900',
+                        },
+                        h3: {
+                            fontFamily: 'dunbar-tall, sans-serif',
+                            fontWeight: '900',
+                        },
+                        h4: {
+                            fontFamily: 'dunbar-tall, sans-serif',
+                            fontWeight: '900',
+                        },
+                        p: {
+                            fontFamily: 'dunbar-text, sans-serif',
+                        },
+                    },
+                },
+            },
+        },
     },
     darkMode: "class",
     plugins: [heroui({
@@ -16,19 +47,12 @@ export default {
             light: {
                 colors: {
                     primary: {
-                        DEFAULT: "#f13848",
+                        DEFAULT: "#ec2b37",
                         foreground: "#fff",
                     },
-                    secondary: "#2b2b2b",
-                    background: "#e3e3ea",
+                    secondary: "#fed00d",
+                    background: "#fff",
 
-                }
-            },
-            dark: {
-                colors: {
-                    primary: "#ff3247",
-                    secondary: "#eaeaea",
-                    background: "#18181b",
                 }
             },
         }
