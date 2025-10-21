@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useContext, useEffect, useState} from "react";
+import {createContext, ReactNode, useContext, useEffect, useRef, useState} from "react";
 import {StoreFinderDrawer} from "../components/nav/StoreFinderDrawer.tsx";
 
 type StoreLocation = {
@@ -21,18 +21,27 @@ export function StoreLocationProvider({children}: { children: ReactNode })
 {
     const [storeLocations, setStoreLocations] = useState<StoreLocation[]>([]);
     const [isOpen, setIsOpen] = useState(false);
+    const htmlSelector = useRef(document.querySelector("html"));
 
-    useEffect(()=>{
-        fetch("https://lib.mardens.com/stores").then(res=>res.json()).then(setStoreLocations).catch(console.error);
-    }, [])
+    useEffect(() =>
+    {
+        fetch("https://lib.mardens.com/stores").then(res => res.json()).then(setStoreLocations).catch(console.error);
+    }, []);
 
-    const close = () => setIsOpen(false);
-    const open = () => setIsOpen(true);
-
+    const close = () =>
+    {
+        setIsOpen(false);
+        if (htmlSelector.current) htmlSelector.current.classList.remove("!overflow-hidden");
+    };
+    const open = () =>
+    {
+        setIsOpen(true);
+        if (htmlSelector.current && !htmlSelector.current.classList.contains("overflow-hidden")) htmlSelector.current.classList.add("!overflow-hidden");
+    };
 
     return (
-        <StoreLocationContext.Provider value={{open, close, isOpen, stores:storeLocations}}>
-            <StoreFinderDrawer open={isOpen} onClose={close} />
+        <StoreLocationContext.Provider value={{open, close, isOpen, stores: storeLocations}}>
+            <StoreFinderDrawer open={isOpen} onClose={close}/>
             {children}
         </StoreLocationContext.Provider>
     );
