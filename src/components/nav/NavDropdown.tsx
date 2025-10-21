@@ -3,6 +3,7 @@ import {cn, Link} from "@heroui/react";
 import {motion} from "framer-motion";
 import {Icon} from "@iconify-icon/react";
 import {ShakeyIcon} from "../ShakeyIcon.tsx";
+import {useNavigate} from "react-router-dom";
 
 export type NavDropdownProps = {
     label: string | ReactNode;
@@ -51,15 +52,18 @@ export function NavDropdownItem(props: NavDropdownItemProps)
 {
     const {icon, href, children, ...rest} = props;
     const [hovering, setHovering] = useState(false);
+    const navigate = useNavigate();
     return (
         <div
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
+            onClick={() =>
+            {
+                if (href) navigate(href);
+            }}
             className={cn("flex flex-row items-center gap-4 hover:text-secondary border-b border-black/10 p-4 cursor-pointer relative", rest.className)}
             {...rest}
         >
-
-
             {icon ? <span className={"data-[hover=true]:text-primary"} data-hover={hovering}><ShakeyIcon active={hovering} icon={icon} width={24} height={24}/></span> : null}
             <span>{children}</span>
             <motion.span

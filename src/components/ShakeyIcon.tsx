@@ -3,11 +3,12 @@ import {motion} from "framer-motion";
 
 export type ShakeyIconProps = {
     active: boolean;
+    isIconifyIcon?: boolean;
 } & IconifyIconProps;
 
 export function ShakeyIcon(props: ShakeyIconProps)
 {
-    const {icon, width, height, active, color} = props;
+    const {icon, width, height, active, color, isIconifyIcon} = props;
     return (
         <div data-active={props.active} className={"relative"} style={{width: width, height: height}}>
             <motion.div
@@ -32,12 +33,12 @@ export function ShakeyIcon(props: ShakeyIconProps)
                     }
                 }}
             >
-                <Icon icon={icon} width={width} height={height} color={color}/>
+                {isIconifyIcon ? <Icon icon={icon} width={width} height={height} color={color}/> : <img src={icon as string} alt={""} width={width} height={height} className={"object-center object-contain"}/>}
             </motion.div>
             <motion.div
                 initial={{scale: 0, rotate: 45}}
                 animate={{
-                    scale: active ? 1.75 : 0,
+                    scale: active ? 2 : 0,
                     rotate: active ? 0 : 45
                 }}
                 transition={{
