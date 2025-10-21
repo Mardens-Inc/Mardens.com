@@ -38,7 +38,7 @@
     background-color: hsl(var(--heroui-secondary));
     color: hsl(var(--heroui-primary));
     font-weight: 900;
-    font-family: "eds-market-narrow-slant", "dunbar", sans-serif;
+    font-family: "eds-market-narrow-slant", "dunbar-text", sans-serif;
 }
 
 
