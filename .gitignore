@@ -136,3 +136,8 @@ dist
 .vscode/
 .claude/
 CLAUDE.MD
+
+# Font files
+*.ttf
+*.woff
+*.woff2
