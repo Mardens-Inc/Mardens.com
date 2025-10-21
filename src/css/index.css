@@ -35,10 +35,8 @@
 }
 
 ::selection {
-    background-color: hsl(var(--heroui-secondary));
+    background-color: #ffaf1a;
     color: hsl(var(--heroui-primary));
-    font-weight: 900;
-    font-family: "eds-market-narrow-slant", "dunbar-text", sans-serif;
 }
 
 
