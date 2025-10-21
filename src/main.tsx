@@ -6,13 +6,16 @@ import "./css/index.css";
 import Home from "./pages/Home.tsx";
 import Navigation from "./components/nav/Navigation.tsx";
 import {HeroUIProvider} from "@heroui/react";
+import {StoreLocationProvider} from "./providers/StoreLocationProvider.tsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <StoreLocationProvider>
+            <BrowserRouter>
                 <MainContentRenderer/>
-        </BrowserRouter>
+            </BrowserRouter>
+        </StoreLocationProvider>
     </React.StrictMode>
 );
 

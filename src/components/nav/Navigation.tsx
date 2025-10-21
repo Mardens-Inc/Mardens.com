@@ -3,11 +3,16 @@ import {Divider, Link, Navbar, NavbarBrand, NavbarContent, NavbarMenuToggle} fro
 import {Logo} from "../../images/Logo.svg.tsx";
 import spike from "../../images/spike.svg";
 import {NavDropdown, NavDropdownItem} from "./NavDropdown.tsx";
+import {ShakeyIcon} from "../ShakeyIcon.tsx";
+import {StoreFinderDrawer} from "./StoreFinderDrawer.tsx";
+import {useStoreLocation} from "../../providers/StoreLocationProvider.tsx";
+import {Icon} from "@iconify-icon/react";
 
 export default function Navigation()
 {
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const {open: openStoreLocator} = useStoreLocation();
 
     return (
         <Navbar
@@ -19,7 +24,7 @@ export default function Navigation()
             }}
         >
             <div
-                className={"h-6 w-full absolute -bottom-6 left-0 bg-repeat-x drop-shadow-lg -z-10"}
+                className={"h-6 w-full absolute -bottom-6 left-0 bg-repeat-x drop-shadow-lg -z-10 pointer-events-none"}
                 style={{
                     backgroundImage: `url("${spike}")`
                 }}
@@ -34,7 +39,7 @@ export default function Navigation()
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent justify="start" className={"mt-4"}>
+            <NavbarContent justify="start">
                 <Divider
                     orientation={"vertical"}
                     className={"h-12 w-[2px]"}
@@ -57,7 +62,7 @@ export default function Navigation()
                     orientation={"vertical"}
                     className={"h-12 w-[2px]"}
                 />
-                <Link className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[17px]"} href={"/whats-new"}>What's New</Link>
+                <Link className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[1.05rem]"} href={"/whats-new"}>What's New</Link>
                 <Divider
                     orientation={"vertical"}
                     className={"h-12 w-[2px]"}
@@ -71,6 +76,19 @@ export default function Navigation()
                 </NavDropdown>
             </NavbarContent>
             <NavbarContent justify="end">
+                <Link
+                    className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[0.8rem] flex flex-row items-center gap-3"}
+                    href={"/gift-cards"}
+                >
+                    <span className={"text-primary"}><ShakeyIcon active={true} icon={"nimbus:gift-card"} width={20} height={20}/></span> Gift Cards
+                </Link>
+
+                <div
+                    className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[0.8rem] flex flex-row items-center gap-1 cursor-pointer"}
+                    onClick={openStoreLocator}
+                >
+                    <Icon icon={"tdesign:location"} width={20} height={20}/> Locations & Hours
+                </div>
             </NavbarContent>
 
         </Navbar>);
