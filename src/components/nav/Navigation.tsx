@@ -4,7 +4,6 @@ import {Logo} from "../../images/Logo.svg.tsx";
 import spike from "../../images/spike.svg";
 import {NavDropdown, NavDropdownItem} from "./NavDropdown.tsx";
 import {ShakeyIcon} from "../ShakeyIcon.tsx";
-import {StoreFinderDrawer} from "./StoreFinderDrawer.tsx";
 import {useStoreLocation} from "../../providers/StoreLocationProvider.tsx";
 import {Icon} from "@iconify-icon/react";
 
