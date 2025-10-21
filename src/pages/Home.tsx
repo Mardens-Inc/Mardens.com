@@ -1,6 +1,7 @@
 import {Hero} from "../components/home/Hero.tsx";
 import {BenefitsSection} from "../components/home/BenefitsSection.tsx";
 import {ProductCategories} from "../components/home/ProductCategories.tsx";
+import {LocationsShortList} from "../components/home/LocationsShortList.tsx";
 
 export default function Home()
 {
@@ -8,7 +9,11 @@ export default function Home()
         <div className={"flex flex-col"}>
             <Hero/>
             <BenefitsSection/>
+            <div className={"bg-[#f7f7f4]"}>
+
             <ProductCategories/>
+            <LocationsShortList />
+            </div>
         </div>
     );
 }
