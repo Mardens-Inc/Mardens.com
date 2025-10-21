@@ -11,9 +11,9 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
 {
     const {open, onClose} = props;
     return (
-        <div className={"fixed right-0 top-0 -z-10 h-screen w-screen"}>
+        <div className={"fixed right-0 top-0 z-10 h-screen w-screen"}>
             <motion.div
-                className={"fixed inset-0 bg-black/50 backdrop-contrast-50 -z-10 data-[open=true]:pointer-events-auto pointer-events-none"} onClick={onClose}
+                className={"fixed inset-0 bg-black/50 backdrop-contrast-50 backdrop-blur-sm -z-10 data-[open=true]:pointer-events-auto pointer-events-none"} onClick={onClose}
                 initial={{opacity: 0}}
                 animate={{opacity: open ? 1 : 0}}
                 data-open={open}

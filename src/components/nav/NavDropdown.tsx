@@ -26,7 +26,7 @@ export function NavDropdown(props: NavDropdownProps)
             </div>}
             <motion.div
                 data-active={hovering}
-                className={"absolute -left-4 w-[calc(100%_+_2rem)] min-w-32 bottom-0 translate-y-[100%] drop-shadow-xl p-4 max-h-50dvh overflow-y-auto bg-white -z-[11] flex flex-col gap-1 font-bold text-[#221e20] uppercase scrollbar-hide data-[active=true]:pointer-events-auto data-[active=false]:pointer-events-none"}
+                className={"absolute -left-4 w-[calc(100%_+_2rem)] min-w-32 bottom-1 pt-4 translate-y-[100%] drop-shadow-xl max-h-50dvh overflow-y-auto bg-white -z-[11] flex flex-col gap-1 font-bold text-[#221e20] uppercase scrollbar-hide data-[active=true]:pointer-events-auto data-[active=false]:pointer-events-none"}
                 initial={{height: 0, opacity: 0, overflow: "hidden"}}
                 animate={{height: hovering ? "auto" : 0, opacity: hovering ? 1 : 0, overflow: hovering ? "auto" : "hidden"}}
                 transition={{
@@ -55,7 +55,7 @@ export function NavDropdownItem(props: NavDropdownItemProps)
         <div
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("flex flex-row items-center gap-4 hover:text-secondary border-b border-black/10 py-2 cursor-pointer relative", rest.className)}
+            className={cn("flex flex-row items-center gap-4 hover:text-secondary border-b border-black/10 p-4 cursor-pointer relative", rest.className)}
             {...rest}
         >
 
