@@ -28,7 +28,7 @@ export default function Navigation()
         <Navbar
             onMenuOpenChange={setIsMenuOpen}
             maxWidth={"full"}
-            className="bg-primary"
+            className="bg-primary z-[9999]"
             classNames={{
                 wrapper: ""
             }}
