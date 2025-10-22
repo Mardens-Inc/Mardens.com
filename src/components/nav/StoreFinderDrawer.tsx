@@ -1,22 +1,28 @@
 import {Icon} from "@iconify-icon/react";
-import {Button, Input} from "@heroui/react";
+import {Button, Input, Link} from "@heroui/react";
 import {motion} from "framer-motion";
 import {useEffect, useRef, useState} from "react";
 
 // Helper function to load Google Maps API
-function loadGoogleMapsScript(apiKey: string, libraries: string[]): Promise<void> {
-    return new Promise((resolve, reject) => {
+function loadGoogleMapsScript(apiKey: string, libraries: string[]): Promise<void>
+{
+    return new Promise((resolve, reject) =>
+    {
         // Check if already loaded
-        if (window.google?.maps) {
+        if (window.google?.maps)
+        {
             resolve();
             return;
         }
 
         // Check if script is already being loaded
-        if (document.querySelector('script[src*="maps.googleapis.com"]')) {
+        if (document.querySelector("script[src*=\"maps.googleapis.com\"]"))
+        {
             // Wait for it to load
-            const checkLoaded = setInterval(() => {
-                if (window.google?.maps) {
+            const checkLoaded = setInterval(() =>
+            {
+                if (window.google?.maps)
+                {
                     clearInterval(checkLoaded);
                     resolve();
                 }
@@ -24,18 +30,20 @@ function loadGoogleMapsScript(apiKey: string, libraries: string[]): Promise<void
             return;
         }
 
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries.join(',')}&callback=initMap`;
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries.join(",")}&callback=initMap`;
         script.async = true;
         script.defer = true;
 
         // Create global callback
-        (window as any).initMap = () => {
+        (window as any).initMap = () =>
+        {
             resolve();
         };
 
-        script.onerror = () => {
-            reject(new Error('Failed to load Google Maps script'));
+        script.onerror = () =>
+        {
+            reject(new Error("Failed to load Google Maps script"));
         };
 
         document.head.appendChild(script);
@@ -167,54 +175,63 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
     const {open, onClose} = props;
 
     const [searchInput, setSearchInput] = useState("");
-    const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
+    const [userLocation, setUserLocation] = useState<{ lat: number, lng: number } | null>(null);
     const [distances, setDistances] = useState<Record<string, string>>({});
     const [isLoadingLocation, setIsLoadingLocation] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
     // Load Google Maps API
-    useEffect(() => {
+    useEffect(() =>
+    {
         const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-        if (!apiKey || apiKey === "your_google_maps_api_key_here") {
+        if (!apiKey || apiKey === "your_google_maps_api_key_here")
+        {
             console.error("Google Maps API key not configured. Please add VITE_GOOGLE_MAPS_API_KEY to your .env file.");
             return;
         }
 
-        loadGoogleMapsScript(apiKey, ["places"]).then(() => {
+        loadGoogleMapsScript(apiKey, ["places"]).then(() =>
+        {
             // Initialize autocomplete once Maps API is loaded
-            if (inputRef.current && !autocompleteRef.current) {
+            if (inputRef.current && !autocompleteRef.current)
+            {
                 autocompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
                     types: ["(regions)"],
-                    componentRestrictions: { country: "us" },
+                    componentRestrictions: {country: "us"},
                     fields: ["address_components", "geometry", "formatted_address"]
                 });
 
-                autocompleteRef.current.addListener("place_changed", () => {
+                autocompleteRef.current.addListener("place_changed", () =>
+                {
                     const place = autocompleteRef.current?.getPlace();
-                    if (place?.geometry?.location) {
+                    if (place?.geometry?.location)
+                    {
                         const lat = place.geometry.location.lat();
                         const lng = place.geometry.location.lng();
-                        setUserLocation({ lat, lng });
+                        setUserLocation({lat, lng});
 
                         // Extract ZIP code from address components
                         const zipCode = place.address_components?.find(
                             component => component.types.includes("postal_code")
                         )?.short_name;
 
-                        if (zipCode) {
+                        if (zipCode)
+                        {
                             setSearchInput(zipCode);
                         }
                     }
                 });
             }
-        }).catch((err: Error) => {
+        }).catch((err: Error) =>
+        {
             console.error("Error loading Google Maps API:", err);
         });
     }, []);
 
     // Calculate distances when user location changes
-    useEffect(() => {
+    useEffect(() =>
+    {
         if (!userLocation) return;
 
         const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -228,13 +245,17 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
                 origins: [new google.maps.LatLng(userLocation.lat, userLocation.lng)],
                 destinations: destinations,
                 travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                unitSystem: google.maps.UnitSystem.IMPERIAL
             },
-            (response, status) => {
-                if (status === "OK" && response) {
+            (response, status) =>
+            {
+                if (status === "OK" && response)
+                {
                     const newDistances: Record<string, string> = {};
-                    response.rows[0].elements.forEach((element, index) => {
-                        if (element.status === "OK") {
+                    response.rows[0].elements.forEach((element, index) =>
+                    {
+                        if (element.status === "OK")
+                        {
                             newDistances[storesToShow[index].name] = element.distance.text;
                         }
                     });
@@ -244,8 +265,10 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
         ).then();
     }, [userLocation]);
 
-    const handleUseCurrentLocation = () => {
-        if (!navigator.geolocation) {
+    const handleUseCurrentLocation = () =>
+    {
+        if (!navigator.geolocation)
+        {
             alert("Geolocation is not supported by your browser");
             return;
         }
@@ -253,31 +276,36 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
         setIsLoadingLocation(true);
 
         navigator.geolocation.getCurrentPosition(
-            (position) => {
+            (position) =>
+            {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
-                setUserLocation({ lat, lng });
+                setUserLocation({lat, lng});
 
                 // Reverse geocode to get ZIP code
                 const geocoder = new google.maps.Geocoder();
                 geocoder.geocode(
-                    { location: { lat, lng } },
-                    (results, status) => {
+                    {location: {lat, lng}},
+                    (results, status) =>
+                    {
                         setIsLoadingLocation(false);
 
-                        if (status === "OK" && results && results[0]) {
+                        if (status === "OK" && results && results[0])
+                        {
                             const zipCode = results[0].address_components?.find(
                                 component => component.types.includes("postal_code")
                             )?.short_name;
 
-                            if (zipCode) {
+                            if (zipCode)
+                            {
                                 setSearchInput(zipCode);
                             }
                         }
                     }
                 ).then();
             },
-            (error) => {
+            (error) =>
+            {
                 setIsLoadingLocation(false);
                 console.error("Error getting location:", error);
                 alert("Unable to get your location. Please ensure location permissions are enabled.");
@@ -324,7 +352,7 @@ export function StoreFinderDrawer(props: StoreFinderDrawerProps)
                 </div>
 
                 <div className={"flex flex-col gap-2 w-full overflow-auto"}>
-                    {storesToShow.sort((a,b)=>a.name.localeCompare(b.name)).map((store, index) => (
+                    {storesToShow.sort((a, b) => a.name.localeCompare(b.name)).map((store, index) => (
                         <StoreLocationItem
                             key={index}
                             {...store}
@@ -375,9 +403,9 @@ function StoreLocationItem(props: StoreLocationItemProps)
     return (
         <div className={"flex flex-col gap-2 w-full border-b border-black/10 py-4 font-text transition-none"}>
             <div className={"flex flex-row gap-2"}>
-                <p className={"font-accent bg-[#f7f7f4] rotate-[-5deg] text-2xl py-2 px-4"}>{name}</p>
+                <a href={`/locations/${name}`} className={"font-accent bg-[#f7f7f4] rotate-[-5deg] text-2xl py-2 px-4 hover:text-secondary hover:bg-primary transition-colors duration-100"}>{name}</a>
                 <div className={"flex flex-row items-center ml-auto font-text"}>
-                    <Button variant={"light"} radius={"none"} className={"text-xs uppercase"} startContent={<Icon icon={"fluent:list-24-filled"} width={16}/>}>Details</Button>
+                    <Button variant={"light"} radius={"none"} className={"text-xs uppercase"} startContent={<Icon icon={"fluent:list-24-filled"} width={16}/>} as={Link} href={`/locations/${name}`}>Details</Button>
                     {distance && (
                         <Button variant={"light"} radius={"none"} className={"text-xs uppercase"} startContent={<Icon icon={"material-symbols:distance-outline-rounded"} width={16}/>}>{distance}</Button>
                     )}
