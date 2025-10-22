@@ -9,7 +9,8 @@ export default {
     ],
     theme: {
         fontFamily: {
-            sans: ['dunbar-text', 'sans-serif'],
+            roboto: ['Roboto', 'sans-serif'],
+            text: ['dunbar-text', 'sans-serif'],
             headers: ['dunbar-tall', 'sans-serif'],
             accent: ['eds-market-narrow-slant', 'cursive'],
         },
@@ -50,7 +51,7 @@ export default {
                         DEFAULT: "#ec2b37",
                         foreground: "#fff",
                     },
-                    secondary: "#fed00d",
+                    secondary: "#fec60b",
                     background: "#fff",
 
                 }
