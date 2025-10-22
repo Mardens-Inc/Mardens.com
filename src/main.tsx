@@ -7,6 +7,7 @@ import Home from "./pages/Home.tsx";
 import Navigation from "./components/nav/Navigation.tsx";
 import {HeroUIProvider} from "@heroui/react";
 import {StoreLocationProvider} from "./providers/StoreLocationProvider.tsx";
+import {ErrorPage} from "./pages/ErrorPage.tsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -28,6 +29,7 @@ export function MainContentRenderer()
             <Routes>
                 <Route>
                     <Route path="/" element={<Home/>}/>
+                    <Route path="*" element={<ErrorPage/>}/>
                 </Route>
             </Routes>
         </HeroUIProvider>
