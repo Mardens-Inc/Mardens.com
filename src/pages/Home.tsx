@@ -4,6 +4,8 @@ import {ProductCategories} from "../components/home/ProductCategories.tsx";
 import {LocationsShortList} from "../components/home/LocationsShortList.tsx";
 import {InstagramFeed} from "../components/InstagramFeed.tsx";
 import {Footer} from "../components/Footer.tsx";
+import {CTA} from "../components/home/CTA.tsx";
+import {NewsLetterCTA} from "../components/home/NewsLetterCTA.tsx";
 
 export default function Home()
 {
@@ -15,6 +17,8 @@ export default function Home()
                 <ProductCategories/>
                 <LocationsShortList/>
             </div>
+            <CTA />
+            <NewsLetterCTA />
             <InstagramFeed/>
             <Footer/>
         </div>
