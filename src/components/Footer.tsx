@@ -8,8 +8,8 @@ export function Footer()
     return (
         <div className={"bg-[#cc1f26] flex flex-col h-[350px] text-white gap-6 relative"}>
             <div className={"bg-repeat bg-center absolute -top-3 left-0 right-0 h-3 rotate-180"} style={{backgroundImage: `url("${Spikes}")`}} />
-            <div className={"flex flex-row justify-between h-full mx-[15%]"}>
-                <div className={"bg-no-repeat bg-center bg-cover h-full w-[415px]"} style={{backgroundImage: `url("${FooterLogo}")`}}/>
+            <div className={"flex flex-row justify-between h-full mx-4 xl:mx-[15%]"}>
+                <div className={"bg-no-repeat bg-center bg-contain h-full md:w-[300px] lg:w-[415px] shrink-0"} style={{backgroundImage: `url("${FooterLogo}")`}}/>
                 <div className={"flex flex-col justify-between grow ml-10 pb-4"}>
                     <div className={"flex flex-row gap-10 my-auto"}>
                         <ul>

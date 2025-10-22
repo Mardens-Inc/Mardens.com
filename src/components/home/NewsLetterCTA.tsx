@@ -8,7 +8,7 @@ export function NewsLetterCTA()
 {
     return (
         <div className={"flex flex-row mb-20"}>
-            <div className={"flex flex-col items-center justify-center bg-primary border-primary text-center w-[40%] relative text-white p-4 lg:flex lg:items-center lg:justify-center h-[703px] bg-cover bg-center"} style={{backgroundImage: `url("${Stars}")`}}>
+            <div className={"hidden lg:flex flex-col items-center justify-center bg-primary border-primary text-center w-[40%] relative text-white p-4 h-[703px] bg-cover bg-center"} style={{backgroundImage: `url("${Stars}")`}}>
                 <div className={"absolute w-4 -right-4 top-0 bottom-0 bg-repeat-y bg-contain"} style={{backgroundImage: `url("${Spike}")`}}/>
                 <img width="440" height="649" src={Map} alt="maine map"/>
             </div>

@@ -12,7 +12,7 @@ export function BenefitsSection()
                 <h2 className={"uppercase text-5xl font-headers text-primary font-bold"}>Maine's Best Discounts</h2>
             </div>
 
-            <div className={"md:max-w-full md:flex md:flex-row md:flex-wrap lg:px-4 lg:max-w-[90rem] mt-20"}>
+            <div className={"flex flex-col md:flex-row flex-wrap px-8 mt-20 lg:flex-nowrap lg:max-w-6xl md:max-w-full md:px-4"}>
                 <BenefitCard
                     icon={SpringBadge}
                     title="Unexpected Deals"
@@ -44,10 +44,12 @@ function BenefitCard({icon, title, description}: { icon: string, title: string, 
 
 
     return (
-        <div className={"flex flex-col items-start w-full md:w-1/2 lg:w-1/4 xl:px-8"}>
-            <img src={icon} alt={""} className={"w-20 mb-4"}/>
-            <h5 className={"w-full uppercase font-black tracking-wider leading-tight mt-6 xs:mt-0 lg:mt-8 text-base"}>{title}</h5>
-            <p>{description}</p>
+        <div className={"flex flex-row gap-4 items-start w-full px-8 md:flex-col md:gap-0 md:w-1/4 mb-16 lg:mb-0 lg:px-4"}>
+            <img src={icon} alt={""} className={"w-20 md:mb-4"}/>
+            <div className={"flex flex-col"}>
+                <h5 className={"w-full uppercase font-black tracking-wider leading-tight mt-6 xs:mt-0 lg:mt-8 text-base"}>{title}</h5>
+                <p>{description}</p>
+            </div>
         </div>
     );
 }
