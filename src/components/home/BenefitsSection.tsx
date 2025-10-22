@@ -9,7 +9,7 @@ export function BenefitsSection()
         <div className={"flex flex-col mx-auto my-20"}>
             <div className={"text-center"}>
                 <h4 className={"uppercase text-4xl font-accent"}>14 Unique Locations</h4>
-                <h2 className={"uppercase text-5xl font-headers text-primary font-bold"}>Maine's Best Discounts</h2>
+                <h2 className={"uppercase text-5xl font-headers text-primary font-bold max-w-[80%] mx-auto"}>Maine's Best Discounts</h2>
             </div>
 
             <div className={"flex flex-col md:flex-row flex-wrap px-8 mt-20 lg:flex-nowrap lg:max-w-6xl md:max-w-full md:px-4"}>

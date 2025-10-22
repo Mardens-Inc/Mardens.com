@@ -8,13 +8,13 @@ import {fetchInstagramPost, formatCount, type InstagramPost} from "../services/i
 export function InstagramFeed()
 {
     return (
-        <div className={"flex flex-row items-center justify-center h-[200px] w-3/4 gap-16 mx-auto my-8"}>
+        <div className={"flex flex-col lg:flex-row items-center justify-center lg:h-[200px] w-auto lg:w-3/4 gap-4 lg:gap-16 mx-2 lg:mx-auto my-8"}>
             <div className={"flex flex-col items-center justify-center w-fit"}>
                 <p className={"font-accent uppercase text-2xl"}>Follow us on</p>
-                <p className={"text-primary font-headers font-bold text-3xl uppercase relative"}>instagram <img src={Arrow} alt={""} width={50} className={"absolute -right-16 top-0"}/></p>
+                <p className={"text-primary font-headers font-bold text-3xl uppercase relative"}>instagram <img src={Arrow} alt={""} width={50} className={"absolute -right-16 top-0 rotate-90 lg:rotate-0"}/></p>
                 <p className={"text-center text-sm"}>Check out what's new at<br/>select store locations. </p>
             </div>
-            <div className={"flex flex-row items-center justify-center w-full gap-8"}>
+            <div className={"flex flex-row items-center lg:justify-center w-full gap-4 flex-wrap lg:gap-8 lg:flex-nowrap"}>
                 <InstagramItem postId={"DLVjmFXvN4e"}/>
                 <InstagramItem postId={"DHwZXn6yvis"}/>
                 <InstagramItem postId={"DHwZXn6yvis"}/>

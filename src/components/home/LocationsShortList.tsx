@@ -12,18 +12,18 @@ export function LocationsShortList()
 
     return (
         <div className={"flex flex-row"}>
-            <div className={"bg-cover bg-no-repeat w-1/2 h-[830px] bg-center flex items-center justify-center"} style={{backgroundImage: `url("${Stars}")`}}>
+            <div className={"bg-cover bg-no-repeat w-1/2 h-[830px] bg-center hidden lg:flex items-center justify-center"} style={{backgroundImage: `url("${Stars}")`}}>
                 <div className={"relative"}>
                     <img src={SinceBadge} alt="" className={"absolute top-20 left-0 z-10 rotate-[-25deg]"} width={250}/>
                     <MaineLocationPins size={500} hoveredLocation={hoveredLocation}/>
                 </div>
             </div>
-            <div className={"w-1/2 p-4 md:p-8 lg:p-12 my-14"}>
+            <div className={"w-full flex flex-col lg:w-1/2 p-4 md:p-8 lg:p-12 my-14"}>
                 <h2 className={"font-headers text-5xl font-bold text-primary"}>14 Unique Maine<br/>
                     <span className={"flex flex-row gap-2"}>Locations <img src={Arrow} className={"mt-7"} alt={""} width={80} height={30}/></span>
                 </h2>
                 <p className={"w-3/4 mt-4"}>Each store is different—think different merchandise and different deals. Pick a favorite or stop by a few and find smart ways to save more.</p>
-                <div className={"flex flex-row gap-4 mt-10 justify-between w-3/4"}>
+                <div className={"flex flex-row flex-wrap w-full md:flex-nowrap gap-4 mt-10 justify-between md:w-3/4"}>
                     <ul>
                         <li className={"font-headers font-bold text-xl mb-4 uppercase"}>Northern</li>
                         <li

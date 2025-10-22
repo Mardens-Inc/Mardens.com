@@ -70,7 +70,19 @@ input:focus-visible, textarea:focus-visible {
     button.spikes::after, a.spikes::after {
         right: -0.34rem;
     }
+
     .spikes.secondary::after, .spikes.secondary::before {
         background-image: url("src/images/spike-horizontal-secondary.svg");
+    }
+}
+
+#hero {
+    background-image: url("../images/mardens-home-2.jpg");
+}
+
+@media (max-width: 768px) {
+    #hero {
+        background-image: none;
+        background-color: #fed326;
     }
 }
