@@ -43,3 +43,30 @@
 input:focus-visible, textarea:focus-visible {
     outline: none !important;
 }
+
+@layer utilities {
+    button.spikes, a.spikes {
+        overflow: visible;
+    }
+
+    button.spikes::after, button.spikes::before, a.spikes::before, a.spikes::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0.34rem;
+        background-image: url("src/images/spike-horizontal.svg");
+        background-repeat: repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    button.spikes::before, a.spikes::before {
+        left: -0.34rem;
+        rotate: 180deg;
+    }
+
+    button.spikes::after, a.spikes::after {
+        right: -0.34rem;
+    }
+}
