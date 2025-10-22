@@ -6,6 +6,8 @@ interface MaineLocationPinsIconProperties
     size?: number | string;
     onLocationPinHover?: (location: string) => void;
     onLocationPinClick?: (location: string) => void;
+    // Externally control which pin is hovered
+    hoveredLocation?: string | null;
 }
 
 const SVG_WIDTH = 397.12;
@@ -15,10 +17,14 @@ const TOOLTIP_OFFSET_Y = 35;
 
 export function MaineLocationPins(props: MaineLocationPinsIconProperties)
 {
-    const [hoveredPin, setHoveredPin] = useState<string | null>(null);
+    const [internalHoveredPin, setInternalHoveredPin] = useState<string | null>(null);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipSize, setTooltipSize] = useState({ width: 0, height: 0 });
     const tooltipRef = useRef<HTMLDivElement>(null);
+    const pinCentersRef = useRef<Map<string, { x: number; y: number }>>(new Map());
+
+    // Use external hover if provided, otherwise use internal
+    const hoveredPin = props.hoveredLocation || internalHoveredPin;
 
     useEffect(() => {
         if (tooltipRef.current && hoveredPin) {
@@ -36,18 +42,58 @@ export function MaineLocationPins(props: MaineLocationPinsIconProperties)
         }
     }, [hoveredPin]);
 
+    // When externally hovered, position tooltip at pin center
+    useEffect(() => {
+        if (props.hoveredLocation && pinCentersRef.current.has(props.hoveredLocation)) {
+            const center = pinCentersRef.current.get(props.hoveredLocation)!;
+            positionTooltip(center.x, center.y);
+        }
+    }, [props.hoveredLocation, tooltipSize]);
+
     const handlePinMouseEnter = (locationId: string, locationName: string, event: React.MouseEvent) => {
-        setHoveredPin(locationId);
+        setInternalHoveredPin(locationId);
         updateTooltipPosition(event);
         props.onLocationPinHover?.(locationName);
     };
 
     const handlePinMouseLeave = () => {
-        setHoveredPin(null);
+        setInternalHoveredPin(null);
     };
 
     const handlePinMouseMove = (event: React.MouseEvent) => {
         updateTooltipPosition(event);
+    };
+
+    const positionTooltip = (x: number, y: number) => {
+        // Calculate tooltip position with offset
+        let tooltipX = x + TOOLTIP_OFFSET_X;
+        let tooltipY = y - TOOLTIP_OFFSET_Y;
+
+        // Constrain within SVG bounds
+        // Check right edge
+        if (tooltipX + tooltipSize.width > SVG_WIDTH) {
+            tooltipX = x - tooltipSize.width - TOOLTIP_OFFSET_X;
+        }
+
+        // Check left edge
+        if (tooltipX < 0) {
+            tooltipX = 0;
+        }
+
+        // Check top edge
+        if (tooltipY < 0) {
+            tooltipY = y + TOOLTIP_OFFSET_Y;
+        }
+
+        // Check bottom edge
+        if (tooltipY + tooltipSize.height > SVG_HEIGHT) {
+            tooltipY = SVG_HEIGHT - tooltipSize.height;
+        }
+
+        setTooltipPosition({
+            x: tooltipX,
+            y: tooltipY
+        });
     };
 
     const updateTooltipPosition = (event: React.MouseEvent) => {
@@ -59,35 +105,7 @@ export function MaineLocationPins(props: MaineLocationPinsIconProperties)
             pt.y = event.clientY;
             const svgP = pt.matrixTransform(svg.getScreenCTM()?.inverse());
 
-            // Calculate tooltip position with offset
-            let tooltipX = svgP.x + TOOLTIP_OFFSET_X;
-            let tooltipY = svgP.y - TOOLTIP_OFFSET_Y;
-
-            // Constrain within SVG bounds
-            // Check right edge
-            if (tooltipX + tooltipSize.width > SVG_WIDTH) {
-                tooltipX = svgP.x - tooltipSize.width - TOOLTIP_OFFSET_X;
-            }
-
-            // Check left edge
-            if (tooltipX < 0) {
-                tooltipX = 0;
-            }
-
-            // Check top edge
-            if (tooltipY < 0) {
-                tooltipY = svgP.y + TOOLTIP_OFFSET_Y;
-            }
-
-            // Check bottom edge
-            if (tooltipY + tooltipSize.height > SVG_HEIGHT) {
-                tooltipY = SVG_HEIGHT - tooltipSize.height;
-            }
-
-            setTooltipPosition({
-                x: tooltipX,
-                y: tooltipY
-            });
+            positionTooltip(svgP.x, svgP.y);
         }
     };
 
@@ -110,6 +128,15 @@ export function MaineLocationPins(props: MaineLocationPinsIconProperties)
                 data-name={dataName}
                 className="cls-3"
                 d={d}
+                ref={(el) => {
+                    if (el && !pinCentersRef.current.has(id)) {
+                        const bbox = el.getBBox();
+                        pinCentersRef.current.set(id, {
+                            x: bbox.x + bbox.width / 2,
+                            y: bbox.y + bbox.height / 2
+                        });
+                    }
+                }}
                 style={{
                     cursor: 'pointer',
                     transformOrigin: 'bottom center',
