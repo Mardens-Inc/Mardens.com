@@ -14,20 +14,20 @@ export function Footer()
                     <div className={"flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 my-auto justify-center lg:justify-start flex-wrap"}>
                         <ul className={"flex-shrink-0"}>
                             <li className={"uppercase font-headers font-black text-base sm:text-lg md:text-xl mb-2"}>customers</li>
-                            <li><Link href={"/what-we-sell"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>What We Sell</Link></li>
-                            <li><Link href={"/return-refund-policy"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Return &amp; Refund Policy</Link></li>
-                            <li><Link href={"/faqs"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>FAQs</Link></li>
-                            <li><Link href={"/contact"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Contact</Link></li>
+                            <li><Link href={"/what-we-sell"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>What We Sell</Link></li>
+                            <li><Link href={"/return-refund-policy"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Return &amp; Refund Policy</Link></li>
+                            <li><Link href={"/faqs"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>FAQs</Link></li>
+                            <li><Link href={"/contact"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Contact</Link></li>
                         </ul>
                         <ul className={"flex-shrink-0"}>
                             <li className={"uppercase font-headers font-black text-base sm:text-lg md:text-xl mb-2"}>company</li>
-                            <li><Link href={"/sell-to-us"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Sell to Us</Link></li>
-                            <li><Link href={"/community-involvement"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Community Involvement</Link></li>
-                            <li><Link href={"/accessibility"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Accessibility</Link></li>
+                            <li><Link href={"/sell-to-us"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Sell to Us</Link></li>
+                            <li><Link href={"/community-involvement"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Community Involvement</Link></li>
+                            <li><Link href={"/accessibility"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Accessibility</Link></li>
                         </ul>
                         <ul className={"flex-shrink-0"}>
                             <li className={"uppercase font-headers font-black text-base sm:text-lg md:text-xl mb-2"}>careers</li>
-                            <li><Link href={"/careers"} className={"text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Work at Marden's</Link></li>
+                            <li><Link href={"/careers"} className={"text-white text-xs sm:text-sm opacity-75 hover:opacity-100 hover:underline hover:text-secondary hover:font-bold transition-all"}>Work at Marden's</Link></li>
                         </ul>
                         <ul className={"flex-shrink-0"}>
                             <li className={"uppercase font-headers font-black text-base sm:text-lg md:text-xl mb-2"}>follow us</li>
