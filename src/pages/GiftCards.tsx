@@ -1,10 +1,64 @@
-import {Autocomplete, AutocompleteItem, Button, Form, Input, Link, Modal, ModalBody, ModalContent, ModalFooter, NumberInput, Radio, RadioGroup, Select, SelectItem} from "@heroui/react";
+import {Autocomplete, AutocompleteItem, Button, Form, Image, Input, Link, Modal, ModalBody, ModalContent, ModalFooter, NumberInput, Radio, RadioGroup, Select, SelectItem} from "@heroui/react";
+import GCImage from "../images/GC-header-new-992x452.jpg";
+import GCImageOnLaptop from "../images/Check-Balance-1-992x588.jpg";
+import {Footer} from "../components/Footer.tsx";
 
 export function GiftCards()
 {
     return (
-        <div className={"flex flex-col max-w-3xl mb-16 mx-auto items-center"}>
+        <div className={"flex flex-col"}>
             <GiftCardForm showNextButton/>
+            <div className={"flex flex-row w-full h-[450px] mt-16"}>
+                <div className={"flex flex-col w-full h-full grow bg-secondary p-10 justify-center"}>
+                    <div className={"ml-16"}>
+                        <p className={"font-bold text-3xl font-accent"}>Purchase</p>
+                        <p className={"text-4xl font-headers font-bold text-primary mb-4"}>In-Store</p>
+                        <p>At any of our 13 unique locations during your own Marden’s adventure.</p>
+
+                        <Button
+                            radius={"none"}
+                            color={"primary"}
+                            size={"lg"}
+                            className={"mt-8 md:mt-10 uppercase font-bold font-text tracking-widest spikes w-48"}
+                            as={Link}
+                            href={"/locations"}
+                        >
+                            Find a Store
+                        </Button>
+                    </div>
+                </div>
+                <Image
+                    src={GCImage}
+                    radius={"none"}
+                    className={"h-full w-[100vw] object-cover -z-10"}
+                />
+            </div>
+            <div className={"flex flex-row w-full h-[450px]"}>
+                <div className={"flex flex-col w-full h-full grow bg-[#d6eef3] p-10 justify-center"}>
+                    <div className={"ml-16"}>
+                        <p className={"font-bold text-3xl font-accent"}>Check your</p>
+                        <p className={"text-4xl font-headers font-bold text-primary mb-4"}>Balance</p>
+                        <p>Not sure how much is left on your Gift Card? Enter your card number and we’ll let you know.</p>
+
+                        <Button
+                            radius={"none"}
+                            color={"primary"}
+                            size={"lg"}
+                            className={"mt-8 md:mt-10 uppercase font-bold font-text tracking-widest spikes w-64"}
+                            as={Link}
+                            href={"/locations"}
+                        >
+                            Enter gift card
+                        </Button>
+                    </div>
+                </div>
+                <Image
+                    src={GCImageOnLaptop}
+                    radius={"none"}
+                    className={"h-full w-[100vw] object-cover -z-10"}
+                />
+            </div>
+            <Footer/>
         </div>
     );
 }
@@ -39,6 +93,16 @@ function GiftCardForm(props: GiftCardFormProps)
                     defaultSelectedKeys={["20"]}
                     selectionMode={"single"}
                     disallowEmptySelection
+                    popoverProps={{
+                        radius: "none"
+                    }}
+                    listboxProps={{
+                        itemClasses: {
+                            base: [
+                                "rounded-none aria-selected:bg-secondary/80 aria-selected:text-primary data-[hover=true]:!bg-secondary/50 aria-selected:data-[hover=true]:!bg-secondary aria-selected:data-[hover=true]:!text-primary"
+                            ],
+                        }
+                    }}
                 >
                     <SelectItem key={"20"}>$20 Gift Card</SelectItem>
                     <SelectItem key={"25"}>$25 Gift Card</SelectItem>
@@ -165,7 +229,7 @@ function GiftCardForm(props: GiftCardFormProps)
                         listboxProps={{
                             itemClasses: {
                                 base: [
-                                    "rounded-none"
+                                    "rounded-none aria-selected:bg-secondary/80 aria-selected:text-primary data-[hover=true]:!bg-secondary/50 aria-selected:data-[hover=true]:!bg-secondary aria-selected:data-[hover=true]:!text-primary"
                                 ]
                             }
                         }}
@@ -246,7 +310,7 @@ function GiftCardForm(props: GiftCardFormProps)
             {showNextButton &&
                 <Button
                     color={"secondary"}
-                    className={"uppercase font-bold ml-auto"}
+                    className={"uppercase font-bold ml-auto mt-8"}
                     size={"lg"}
                     radius={"none"}
                 >
