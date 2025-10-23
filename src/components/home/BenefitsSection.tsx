@@ -6,13 +6,13 @@ import SmileBadge from "../../images/smile-badge.svg";
 export function BenefitsSection()
 {
     return (
-        <div className={"flex flex-col mx-auto my-20"}>
-            <div className={"text-center"}>
-                <h4 className={"uppercase text-4xl font-accent"}>14 Unique Locations</h4>
-                <h2 className={"uppercase text-5xl font-headers text-primary font-bold max-w-[80%] mx-auto"}>Maine's Best Discounts</h2>
+        <div className={"flex flex-col py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"}>
+            <div className={"text-center max-w-5xl mx-auto"}>
+                <h4 className={"uppercase text-2xl sm:text-3xl md:text-4xl font-accent"}>14 Unique Locations</h4>
+                <h2 className={"uppercase text-3xl sm:text-4xl md:text-5xl font-headers text-primary font-bold mt-2"}>Maine's Best Discounts</h2>
             </div>
 
-            <div className={"flex flex-col md:flex-row flex-wrap px-8 mt-20 lg:flex-nowrap lg:max-w-6xl md:max-w-full md:px-4"}>
+            <div className={"flex flex-col sm:flex-row flex-wrap gap-8 md:gap-6 lg:gap-8 mt-12 md:mt-16 lg:mt-20 max-w-7xl mx-auto justify-center"}>
                 <BenefitCard
                     icon={SpringBadge}
                     title="Unexpected Deals"
@@ -41,14 +41,12 @@ export function BenefitsSection()
 
 function BenefitCard({icon, title, description}: { icon: string, title: string, description: string })
 {
-
-
     return (
-        <div className={"flex flex-row sm:gap-4 items-start w-full sm:px-8 md:flex-col md:gap-0 md:w-1/4 sm:mb-16 lg:mb-0 lg:px-4"}>
-            <img src={icon} alt={""} className={"w-20 md:mb-4 hidden sm:block"}/>
-            <div className={"flex flex-col"}>
-                <h5 className={"w-full uppercase font-black tracking-wider leading-tight mt-6 xs:mt-0 lg:mt-8 text-base"}>{title}</h5>
-                <p>{description}</p>
+        <div className={"flex flex-col items-center text-center sm:items-start sm:text-left sm:flex-row md:flex-col md:items-center md:text-center gap-4 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] lg:max-w-[280px]"}>
+            <img src={icon} alt={""} className={"w-16 sm:w-20 md:w-24 flex-shrink-0"}/>
+            <div className={"flex flex-col gap-2"}>
+                <h5 className={"uppercase font-black tracking-wider leading-tight text-base sm:text-lg"}>{title}</h5>
+                <p className={"text-sm sm:text-base leading-relaxed"}>{description}</p>
             </div>
         </div>
     );

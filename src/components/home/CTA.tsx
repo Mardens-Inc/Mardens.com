@@ -1,16 +1,16 @@
 export function CTA()
 {
     return (
-        <div className={"flex flex-col sm:flex-row border-t-2 border-b-2 border-primary sm:h-[200px]"}>
-            <a href={"/gift-cards"} className={"flex justify-center items-center grow py-10 sm:py-0 text-primary border-b-2 sm:border-b-none hover:bg-secondary uppercase sm:text-4xl text-2xl font-bold font-headers cursor-pointer transition-background duration-300"}>
+        <div className={"flex flex-col sm:flex-row border-t-2 border-b-2 border-primary sm:min-h-[180px] md:min-h-[200px]"}>
+            <a href={"/gift-cards"} className={"flex justify-center items-center grow py-8 sm:py-6 md:py-8 text-primary border-b-2 border-primary sm:border-b-0 sm:border-r-2 hover:bg-secondary uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-headers cursor-pointer transition-colors duration-300"}>
                 gift cards
             </a>
-            <a href={"return-refund-policy"} className={"flex flex-row gap-4 sm:gap-0 py-10 sm:py-0 sm:flex-col border-b-2 sm:border-b-none justify-center items-center grow text-primary hover:bg-secondary uppercase sm:text-4xl text-2xl font-bold font-headers cursor-pointer transition-background duration-300"}>
+            <a href={"return-refund-policy"} className={"flex flex-row gap-3 sm:gap-2 md:gap-4 sm:flex-col py-8 sm:py-6 md:py-8 border-b-2 border-primary sm:border-b-0 sm:border-r-2 justify-center items-center grow text-primary hover:bg-secondary uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-headers cursor-pointer transition-colors duration-300"}>
                 Returns
-                <span className={"font-accent text-black"}>&amp;</span>
+                <span className={"font-accent text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"}>&amp;</span>
                 Refunds
             </a>
-            <a href={"faq"} className={"flex justify-center items-center grow text-primary py-10 sm:py-0 hover:bg-secondary uppercase sm:text-4xl text-2xl font-bold font-headers cursor-pointer transition-background duration-300"}>
+            <a href={"faq"} className={"flex justify-center items-center grow text-primary py-8 sm:py-6 md:py-8 hover:bg-secondary uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-headers cursor-pointer transition-colors duration-300"}>
                 FAQs
             </a>
         </div>

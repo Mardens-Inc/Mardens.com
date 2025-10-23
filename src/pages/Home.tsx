@@ -10,11 +10,12 @@ import {NewsLetterCTA} from "../components/home/NewsLetterCTA.tsx";
 export default function Home()
 {
     return (
-        <div className={"flex flex-col overflow-x-hidden sm:overflow-visible"}>
+        <div className={"flex flex-col min-h-screen -mt-16"}>
             <Hero/>
             <BenefitsSection/>
-            <div className={"bg-[#f7f7f4]"}>
+            <div className={"bg-[#f7f7f4] my-12 md:my-16 lg:my-20"}>
                 <ProductCategories/>
+                <div className={"h-12 md:h-16 lg:h-20"}></div>
                 <LocationsShortList/>
             </div>
             <CTA />
