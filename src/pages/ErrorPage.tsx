@@ -6,9 +6,8 @@ import {Footer} from "../components/Footer.tsx";
 export function ErrorPage()
 {
     return (
-        <div>
-
-            <div className={"flex flex-col items-start justify-center h-[500px] bg-cover bg-center bg-no-repeat md:px-16"} style={{backgroundImage: `url("${BannerImage}")`}}>
+        <>
+            <div className={"flex flex-col items-start justify-center -mt-16 h-[500px] bg-cover bg-center bg-no-repeat md:px-16"} style={{backgroundImage: `url("${BannerImage}")`}}>
                 <div className={"w-1/2 max-w-[1600px] ml-20"}>
                     <h1 className={"font-black font-headers text-primary uppercase leading-none text-7xl"}>You Can't Get There From Here</h1>
                 </div>
@@ -29,6 +28,6 @@ export function ErrorPage()
             </div>
             <InstagramFeed/>
             <Footer/>
-        </div>
+        </>
     );
 }
