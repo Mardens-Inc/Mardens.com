@@ -18,6 +18,7 @@ import Mattresses from "../../images/icons/mattresses.svg";
 import Seasonal from "../../images/icons/seasonal.svg";
 import {motion} from "framer-motion";
 import {useScreenSize} from "../../providers/ScreenSizeProvider.tsx";
+import {useGiftCard} from "../../providers/GiftCardProvider.tsx";
 
 
 export default function Navigation()
@@ -26,6 +27,7 @@ export default function Navigation()
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const {open: openStoreLocator} = useStoreLocation();
     const {width} = useScreenSize();
+    const {open: openGiftCards} = useGiftCard();
 
     return (
         <>
@@ -86,12 +88,12 @@ export default function Navigation()
                     </NavDropdown>
                 </NavbarContent>
                 <NavbarContent justify="end" className={"hidden lg:flex"}>
-                    <Link
-                        className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[0.8rem] flex flex-row items-center gap-3"}
-                        href={"/gift-cards"}
+                    <div
+                        className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[0.8rem] flex flex-row items-center gap-3 cursor-pointer"}
+                        onClick={openGiftCards}
                     >
                         <span className={"text-primary"}><ShakeyIcon active={true} isIconifyIcon icon={"nimbus:gift-card"} width={20} height={20}/></span> Gift Cards
-                    </Link>
+                    </div>
 
                     <div
                         className={"text-white font-bold uppercase hover:text-secondary hover:!opacity-100 text-[0.8rem] flex flex-row items-center gap-1 cursor-pointer"}
