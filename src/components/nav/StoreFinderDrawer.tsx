@@ -403,7 +403,7 @@ function StoreLocationItem(props: StoreLocationItemProps)
     return (
         <div className={"flex flex-col gap-2 w-full border-b border-black/10 py-4 font-text transition-none"}>
             <div className={"flex flex-row gap-2"}>
-                <a href={`/locations/${name}`} className={"font-accent bg-[#f7f7f4] rotate-[-5deg] text-2xl py-2 px-4 hover:text-secondary hover:bg-primary transition-colors duration-100"}>{name}</a>
+                <Link href={`/locations/${name}`} className={"font-accent bg-[#f7f7f4] rotate-[-5deg] text-2xl py-2 px-4 hover:text-secondary hover:bg-primary transition-colors duration-100"}>{name}</Link>
                 <div className={"flex flex-row items-center ml-auto font-text"}>
                     <Button variant={"light"} radius={"none"} className={"text-xs uppercase"} startContent={<Icon icon={"fluent:list-24-filled"} width={16}/>} as={Link} href={`/locations/${name}`}>Details</Button>
                     {distance && (
