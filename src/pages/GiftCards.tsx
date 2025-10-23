@@ -7,10 +7,12 @@ export function GiftCards()
 {
     return (
         <div className={"flex flex-col"}>
-            <GiftCardForm showNextButton/>
+            <div className={"px-8"}>
+                <GiftCardForm showNextButton/>
+            </div>
             <div className={"flex flex-row w-full h-[450px] mt-16"}>
                 <div className={"flex flex-col w-full h-full grow bg-secondary p-10 justify-center"}>
-                    <div className={"ml-16"}>
+                    <div className={"ml-0 sm:ml-16"}>
                         <p className={"font-bold text-3xl font-accent"}>Purchase</p>
                         <p className={"text-4xl font-headers font-bold text-primary mb-4"}>In-Store</p>
                         <p>At any of our 13 unique locations during your own Marden’s adventure.</p>
@@ -30,12 +32,12 @@ export function GiftCards()
                 <Image
                     src={GCImage}
                     radius={"none"}
-                    className={"h-full w-[100vw] object-cover -z-10"}
+                    className={"h-full w-[100vw] object-cover -z-10 hidden md:block"}
                 />
             </div>
             <div className={"flex flex-row w-full h-[450px]"}>
                 <div className={"flex flex-col w-full h-full grow bg-[#d6eef3] p-10 justify-center"}>
-                    <div className={"ml-16"}>
+                    <div className={"ml-0 sm:ml-16"}>
                         <p className={"font-bold text-3xl font-accent"}>Check your</p>
                         <p className={"text-4xl font-headers font-bold text-primary mb-4"}>Balance</p>
                         <p>Not sure how much is left on your Gift Card? Enter your card number and we’ll let you know.</p>
@@ -55,7 +57,7 @@ export function GiftCards()
                 <Image
                     src={GCImageOnLaptop}
                     radius={"none"}
-                    className={"h-full w-[100vw] object-cover -z-10"}
+                    className={"h-full w-[100vw] object-cover -z-10 hidden md:block"}
                 />
             </div>
             <Footer/>
@@ -100,7 +102,7 @@ function GiftCardForm(props: GiftCardFormProps)
                         itemClasses: {
                             base: [
                                 "rounded-none aria-selected:bg-secondary/80 aria-selected:text-primary data-[hover=true]:!bg-secondary/50 aria-selected:data-[hover=true]:!bg-secondary aria-selected:data-[hover=true]:!text-primary"
-                            ],
+                            ]
                         }
                     }}
                 >
@@ -197,7 +199,7 @@ function GiftCardForm(props: GiftCardFormProps)
                     }}
                     description={"The gift card mailing street address."}
                 />
-                <div className={"flex flex-row gap-2"}>
+                <div className={"flex flex-col sm:flex-row gap-2 w-full"}>
 
                     <Input
                         label={"City"}
