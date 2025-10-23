@@ -13,10 +13,10 @@ export function NewsLetterCTA()
                 <img width="440" height="649" src={Map} alt="maine map"/>
             </div>
             <div className={"flex w-full pb-4 pt-8 justify-center items-center bg-secondary"}>
-                <div className={"flex flex-col gap-4 w-1/2 mx-auto"}>
-                    <p className={"font-accent text-5xl uppercase"}>Get New Deals</p>
-                    <p className={"font-headers text-6xl uppercase text-primary font-bold -mt-4"}>To your inbox</p>
-                    <p className={"font-text uppercase text-3xl font-black pt-4"}>Step 1 of 2</p>
+                <div className={"flex flex-col gap-4 sm:w-1/2 mx-auto"}>
+                    <p className={"font-accent text-3xl sm:text-5xl uppercase"}>Get New Deals</p>
+                    <p className={"font-headers text-4xl sm:text-6xl uppercase text-primary font-bold -mt-4"}>To your inbox</p>
+                    <p className={"font-text uppercase text-xl sm:text-3xl font-black pt-4"}>Step 1 of 2</p>
                     <Form className={"flex flex-col gap-8"}>
                         <Input
                             label={"First Name"}

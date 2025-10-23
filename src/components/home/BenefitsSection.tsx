@@ -44,8 +44,8 @@ function BenefitCard({icon, title, description}: { icon: string, title: string, 
 
 
     return (
-        <div className={"flex flex-row gap-4 items-start w-full px-8 md:flex-col md:gap-0 md:w-1/4 mb-16 lg:mb-0 lg:px-4"}>
-            <img src={icon} alt={""} className={"w-20 md:mb-4"}/>
+        <div className={"flex flex-row sm:gap-4 items-start w-full sm:px-8 md:flex-col md:gap-0 md:w-1/4 sm:mb-16 lg:mb-0 lg:px-4"}>
+            <img src={icon} alt={""} className={"w-20 md:mb-4 hidden sm:block"}/>
             <div className={"flex flex-col"}>
                 <h5 className={"w-full uppercase font-black tracking-wider leading-tight mt-6 xs:mt-0 lg:mt-8 text-base"}>{title}</h5>
                 <p>{description}</p>

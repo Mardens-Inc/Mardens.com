@@ -8,15 +8,18 @@ import Navigation from "./components/nav/Navigation.tsx";
 import {HeroUIProvider} from "@heroui/react";
 import {StoreLocationProvider} from "./providers/StoreLocationProvider.tsx";
 import {ErrorPage} from "./pages/ErrorPage.tsx";
+import {ScreenSizeProvider} from "./providers/ScreenSizeProvider.tsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <StoreLocationProvider>
-            <BrowserRouter>
-                <MainContentRenderer/>
-            </BrowserRouter>
-        </StoreLocationProvider>
+        <ScreenSizeProvider>
+            <StoreLocationProvider>
+                <BrowserRouter>
+                    <MainContentRenderer/>
+                </BrowserRouter>
+            </StoreLocationProvider>
+        </ScreenSizeProvider>
     </React.StrictMode>
 );
 

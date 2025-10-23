@@ -19,7 +19,7 @@ export function LocationsShortList()
                 </div>
             </div>
             <div className={"w-full flex flex-col lg:w-1/2 p-4 md:p-8 lg:p-12 my-14"}>
-                <h2 className={"font-headers text-5xl font-bold text-primary"}>14 Unique Maine<br/>
+                <h2 className={"font-headers text-3xl smtext-5xl font-bold text-primary"}>14 Unique Maine<br/>
                     <span className={"flex flex-row gap-2"}>Locations <img src={Arrow} className={"mt-7"} alt={""} width={80} height={30}/></span>
                 </h2>
                 <p className={"w-3/4 mt-4"}>Each store is different—think different merchandise and different deals. Pick a favorite or stop by a few and find smart ways to save more.</p>

@@ -10,7 +10,7 @@ import {NewsLetterCTA} from "../components/home/NewsLetterCTA.tsx";
 export default function Home()
 {
     return (
-        <div className={"flex flex-col"}>
+        <div className={"flex flex-col overflow-x-hidden sm:overflow-visible"}>
             <Hero/>
             <BenefitsSection/>
             <div className={"bg-[#f7f7f4]"}>

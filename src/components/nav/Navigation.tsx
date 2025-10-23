@@ -17,6 +17,7 @@ import Hardware from "../../images/icons/hardware.svg";
 import Mattresses from "../../images/icons/mattresses.svg";
 import Seasonal from "../../images/icons/seasonal.svg";
 import {motion} from "framer-motion";
+import {useScreenSize} from "../../providers/ScreenSizeProvider.tsx";
 
 
 export default function Navigation()
@@ -24,6 +25,7 @@ export default function Navigation()
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const {open: openStoreLocator} = useStoreLocation();
+    const {width} = useScreenSize();
 
     return (
         <>
@@ -41,7 +43,7 @@ export default function Navigation()
                 <NavbarContent className={"!grow-0 shrink-0 mr-4"}>
                     <NavbarBrand as={Link} href={"/"}>
                         <Logo
-                            height={50}
+                            height={width > 768 ? 50 : 30}
                             fill={"white"}
                         />
                     </NavbarBrand>
