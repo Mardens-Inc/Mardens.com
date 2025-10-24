@@ -6,7 +6,7 @@ import Spikes from "../images/spike-footer.svg";
 export function Footer()
 {
     return (
-        <div className={"bg-[#cc1f26] flex flex-col min-h-[350px] sm:min-h-[350px] text-white relative"}>
+        <div className={"bg-[#cc1f26] flex flex-col min-h-[350px] sm:min-h-[350px] text-white relative mt-16"}>
             <div className={"bg-repeat bg-center absolute -top-3 left-0 right-0 h-3 rotate-180"} style={{backgroundImage: `url("${Spikes}")`}}/>
             <div className={"flex flex-col lg:flex-row justify-between h-full px-4 sm:px-6 md:px-8 py-8 sm:py-10 lg:py-0 lg:px-4 items-center lg:items-stretch gap-8 lg:gap-0"}>
                 <div className={"bg-no-repeat bg-center bg-contain h-[200px] lg:h-[350px] hidden lg:block lg:w-[250px] xl:w-[415px] shrink-0"} style={{backgroundImage: `url("${FooterLogo}")`}}/>
