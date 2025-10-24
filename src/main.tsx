@@ -11,6 +11,8 @@ import {ErrorPage} from "./pages/ErrorPage.tsx";
 import {ScreenSizeProvider} from "./providers/ScreenSizeProvider.tsx";
 import {GiftCards} from "./pages/GiftCards.tsx";
 import {GiftCardProvider} from "./providers/GiftCardProvider.tsx";
+import {WhatsNew} from "./pages/WhatsNew.tsx";
+import {WhoAreWe} from "./pages/about-us/WhoAreWe.tsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -46,6 +48,8 @@ export function MainContentRenderer()
                     <Route>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/gift-cards" element={<GiftCards/>}/>
+                        <Route path="/whats-new" element={<WhatsNew/>}/>
+                        <Route path="/about-us/who-are-we" element={<WhoAreWe/>}/>
                         <Route path="*" element={<ErrorPage/>}/>
                     </Route>
                 </Routes>
