@@ -1,6 +1,8 @@
 import {defineConfig} from "vite";
 import react from "@vitejs/plugin-react";
 
+const timestamp = new Date();
+
 export default defineConfig({
     plugins: [react()],
     esbuild: {
@@ -26,6 +28,7 @@ export default defineConfig({
         }
     },
     build: {
-        outDir: "dist/"
+        outDir: "dist/",
+        assetsDir: `assets-${timestamp.getFullYear()}-${timestamp.getMonth()+1}-${timestamp.getDate()}-${timestamp.getHours()}-${timestamp.getMinutes()}-${timestamp.getSeconds()}`,
     }
 });
