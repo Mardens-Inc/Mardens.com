@@ -84,7 +84,7 @@ export default function Navigation()
                         href={"/about-us"}
                     >
                         <NavDropdownItem key={"nav-dropdown-item-who-are-we"} href={"/about-us/who-are-we"}>Who Are We?</NavDropdownItem>
-                        <NavDropdownItem key={"nav-dropdown-item-our-story"} href={"/about-us/our-story"}>Our Story</NavDropdownItem>
+                        <NavDropdownItem key={"nav-dropdown-item-our-story"} href={"/about-us/our-history"}>Our Story</NavDropdownItem>
                     </NavDropdown>
                 </NavbarContent>
                 <NavbarContent justify="end" className={"hidden lg:flex"}>
