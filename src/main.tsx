@@ -13,6 +13,7 @@ import {GiftCards} from "./pages/GiftCards.tsx";
 import {GiftCardProvider} from "./providers/GiftCardProvider.tsx";
 import {WhatsNew} from "./pages/WhatsNew.tsx";
 import {WhoAreWe} from "./pages/about-us/WhoAreWe.tsx";
+import {OurHistory} from "./pages/about-us/OurHistory.tsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -50,6 +51,7 @@ export function MainContentRenderer()
                         <Route path="/gift-cards" element={<GiftCards/>}/>
                         <Route path="/whats-new" element={<WhatsNew/>}/>
                         <Route path="/about-us/who-are-we" element={<WhoAreWe/>}/>
+                        <Route path="/about-us/our-history" element={<OurHistory/>}/>
                         <Route path="*" element={<ErrorPage/>}/>
                     </Route>
                 </Routes>
